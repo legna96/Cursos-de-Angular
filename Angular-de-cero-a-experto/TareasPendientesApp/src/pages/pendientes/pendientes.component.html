@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Pendientes</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <!-- <img src="../../assets/imgs/pendientes.jpg">-->
+
+  <app-listas [terminado]="false" ></app-listas>
+
+  <!-- Real floating action button, fixed. It will not scroll with the content -->
+  <ion-fab bottom right>
+    <button ion-fab (click)="agregarLista()"><ion-icon name="add"></ion-icon></button>
+
+  </ion-fab>
+
+</ion-content>

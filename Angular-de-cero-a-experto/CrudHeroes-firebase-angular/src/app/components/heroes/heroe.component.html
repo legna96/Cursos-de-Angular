@@ -1,0 +1,49 @@
+<h3>Héroe
+  <small *ngIf="heroe.nombre">{{ heroe.nombre }}..</small>
+</h3>
+
+<hr>
+<div class="text-right">
+  <button class="btn btn-danger  mb-3 mr-1" [routerLink]="['/heroes']">
+    <i class="fas fa-arrow-left"></i>
+  </button>
+  <button class="btn btn-info mb-3 ml-1" (click)="agregarNuevo(forma)">
+    <i class="fas fa-plus-circle"></i>
+  </button>
+</div>
+
+<div class="row animated fadeIn fast">
+  <div class="col-md-12">
+
+    <div class="alert alert-success" *ngIf="status == 'success'">
+      <strong> Datos guardados </strong> Correctamente
+    </div>
+
+    <form (ngSubmit)="guardar()" #forma="ngForm" class="pt-5 pl-3 pr-3 pb-5">
+
+      <div class="form-group">
+        <label for="Nombre">Nombre</label>
+        <input type="text" name="nombre" [(ngModel)]="heroe.nombre" class="form-control" placeholder="Nombre del Heroe" required>
+      </div>
+
+      <div class="form-group">
+        <label for="Casa">Casa</label>
+        <select name="casa" [(ngModel)]="heroe.casa" class="form-control">
+          <option value="Marvel"> Marvel </option>
+          <option value="DC"> DC </option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="Biografia">Biografia</label>
+        <textarea name="bio" [(ngModel)]="heroe.bio" class="form-control">
+        </textarea>
+      </div>
+
+      <div class="form-group">
+        <input type="submit" [disabled]="!forma.valid" class="btn btn-success" value="Guardar Cambios">
+      </div>
+
+    </form>
+  </div>
+</div>
